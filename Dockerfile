@@ -1,5 +1,3 @@
-# Adapted from https://github.com/implydata/distribution-docker/
-
 FROM ubuntu:16.04
 
 # Modificar per canviar versió
