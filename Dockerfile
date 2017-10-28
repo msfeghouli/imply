@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
-# Modificar per canviar versió
-ENV IMPLY_VERSION 2.0.0
+# Modificar per canviar versiÃ³
+ENV IMPLY_VERSION 2.3.6
 
 COPY nodesource-pubkey /root/nodesource-pubkey
 
