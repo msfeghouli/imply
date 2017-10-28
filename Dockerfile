@@ -18,7 +18,8 @@ RUN \
     # Install Java
     && (echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections) && apt-get install -y oracle-java8-installer oracle-java8-set-default \
     # Install Node
-    && apt-get -y install --no-install-recommends nodejs \
+    && apt-get -y install --no-install-recommends nodejs
+RUN \
     # Install Imply
     && curl -O http://static.imply.io/release/imply-${IMPLY_VERSION}.tar.gz \
     && tar -xzf imply-${IMPLY_VERSION}.tar.gz \
