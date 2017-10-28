@@ -21,7 +21,7 @@ RUN \
     && apt-get -y install --no-install-recommends nodejs
 RUN \
     # Install Imply
-    && curl -O http://static.imply.io/release/imply-${IMPLY_VERSION}.tar.gz \
+    curl -O http://static.imply.io/release/imply-${IMPLY_VERSION}.tar.gz \
     && tar -xzf imply-${IMPLY_VERSION}.tar.gz \
     && mkdir /imply \
     && mv imply-${IMPLY_VERSION} /imply/ \
