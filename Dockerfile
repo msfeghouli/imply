@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-# Modificar per canviar versió
+# Modificar per canviar versi
 ENV IMPLY_VERSION 2.3.6
 
 COPY nodesource-pubkey /root/nodesource-pubkey
@@ -18,18 +18,18 @@ RUN \
     # Install Java
     && (echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections) && apt-get install -y oracle-java8-installer oracle-java8-set-default \
     # Install Node
-    && apt-get -y install --no-install-recommends nodejs
+    && apt-get -y install --no-install-recommends nodejs wget \
+    # Install Imply
     
-RUN apt-get install wget
-RUN  wget http://static.imply.io/release/imply-2.3.6.tar.gz 
-RUN  tar -xzf imply-2.3.6.tar.gz 
-RUN mkdir /imply \
+    && wget  http://static.imply.io/release/imply-${IMPLY_VERSION}.tar.gz \
+    && tar -xzf imply-${IMPLY_VERSION}.tar.gz \
+    && mkdir /imply \
     && mv imply-${IMPLY_VERSION} /imply/ \
     # Remove stuff we probably don't need, to save on space
     && apt-get -y remove software-properties-common \
     && apt-get -y autoremove \
-    && apt-get -y clean 
-RUN rm -fr \
+    && apt-get -y clean \
+    && rm -fr \
         imply-${IMPLY_VERSION}.tar.gz \
         /var/cache/oracle-jdk8-installer \
         /usr/lib/jvm/java-8-oracle/src.zip \
