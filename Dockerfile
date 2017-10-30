@@ -22,7 +22,7 @@ RUN \
 RUN \
     # Install Imply
     curl -O http://static.imply.io/release/imply-2.3.6.tar.gz \
-    && tar -xzf imply-2.3.6.tar.gz \
+RUN  tar -xzf imply-2.3.6.tar.gz \
     && mkdir /imply \
     && mv imply-${IMPLY_VERSION} /imply/ \
     # Remove stuff we probably don't need, to save on space
